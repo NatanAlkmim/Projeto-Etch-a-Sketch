@@ -1,23 +1,47 @@
-/*
-Configure um efeito “hover” para que os divs da grade mudem de cor quando o mouse passar sobre eles, 
-  deixando um rastro (pixelado) pela grade como uma caneta faria.
-  * Dica: “Hovering” é o que acontece quando o mouse entra em um div e termina
-    quando o mouse sai dele. Você pode configurar ouvintes de eventos para qualquer 
-    um desses eventos como ponto de partida.
-  * Existem várias maneiras de alterar a cor dos divs, incluindo:
-Adicionando uma nova classe ao div.
-Alterando a cor de fundo do div usando JavaScript.
-*/
-
 const container = document.querySelector("#container");
+const checkbox = document.querySelector("#mudar-cor");
+const clearGrid = document.querySelector("#clear-all");
 
-for (let i = 0; i < 256; i++) {
-  const div = document.createElement("div");
-  //div.textContent = "Eu sou um h3 azul!";
-  
+function createGrid(container) {
+  for (let i = 0; i < 256; i++) {
+    const div = document.createElement("div");
+    div.addEventListener("mouseenter", () => {
 
-  div.addEventListener("mouseenter", () => {
-    div.style.backgroundColor = "gray";
-  });
-  container.appendChild(div);
+      if (checkbox.checked) {
+        const hMin = 200;
+        const hMax = 280;
+        const h = Math.floor(Math.random() * (hMax - hMin) + hMin);
+        div.style.backgroundColor = `hsl(${h}, 60%, 80%)`;
+      } else {
+        div.style.backgroundColor = "gray";
+      }
+
+    });
+    container.appendChild(div);
+  }
 }
+createGrid(container);
+
+
+function clearcolors(clearGrid) {
+  clearGrid.addEventListener("click", () => {
+    container.innerHTML = '';
+    createGrid(container);
+  });
+}
+clearcolors(clearGrid);
+
+
+
+//container.innerHTML = '';
+
+//btnPedra.addEventListener("click", () => playRound("pedra", getComputerChoice()));
+
+/*
+const el = document.querySelector("#meu-elemento");
+
+el.addEventListener("mouseleave", () => {
+  el.style.backgroundColor = '';
+  el.style.color = '';
+});
+*/
