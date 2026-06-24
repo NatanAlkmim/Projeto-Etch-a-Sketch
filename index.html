@@ -8,16 +8,19 @@
   <title>Projeto-Etch-a-Sketch</title>
 </head>
 <body>
-  <div id="buttons">
+  <fieldset id="buttons">
     <button id="grid-size">Tamanho da Grade</button>
     <button id="clear-all">Limpar quadrados</button>
-  </div>
-  <div id="check-options">
+  </fieldset>
+  <fieldset id="check-options">
+    <legend>Opções</legend>
+
     <input type="checkbox" id="mudar-cor">
     <label for="mudar-cor">Quadrados coloridos</label>
-  </div>
+    
+    <input type="checkbox" id="click-to-color">
+    <label for="click-to-color">Clique para colorir</label>
+  </fieldset>
   <div id="container"></div>
 </body>
 </html>
-
-<!--Abrir uma caixa de seleção de opções com a funcionalidade quadrados coloridos e colorir a cada clique-->

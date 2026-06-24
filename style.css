@@ -7,8 +7,6 @@
 }
 
 #container div {
-  width: calc(100% / 16);
-  height: calc(100% / 16);
   box-sizing: border-box;
   border: 1px solid black;
 }
