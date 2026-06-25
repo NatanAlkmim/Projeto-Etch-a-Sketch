@@ -13,12 +13,17 @@ function userSize(gridSize) {
 
     let getSizeGrid = prompt("Escolha um valor de 1 a 100");
 
-    while (getSizeGrid < 1 || getSizeGrid > 100 || !Number.isInteger()) {
+    while (getSizeGrid < 1 || getSizeGrid > 100 || !Number.isInteger(getSizeGrid)) {
+      
       if (getSizeGrid === null) {
         break;
-      } 
+      } else if (!Number.isInteger(getSizeGrid)) {
+        alert("Apenas número inteiro");
+        getSizeGrid = prompt("Escolha um valor de 1 a 100");
+        continue;
+      }
+
       alert("Precisa ser de 1 a 100!!!");
-      getSizeGrid = prompt("Escolha um valor de 1 a 100");
     }
 
     container.innerHTML = '';
