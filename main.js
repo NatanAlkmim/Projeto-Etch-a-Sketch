@@ -1,8 +1,9 @@
 const container = document.querySelector("#container");
 const gridSize = document.querySelector("#grid-size");
-const changeColor = document.querySelector("#mudar-cor");
+const changeColor = document.querySelector("#change-color");
 const clearGrid = document.querySelector("#clear-all");
 const clickToColor = document.querySelector("#click-to-color");
+const applyOpacity = document.querySelector("#apply-opacity");
 
 let tamanhoAtual = 16;
 
@@ -27,6 +28,10 @@ function userSize(gridSize) {
 
 userSize(gridSize)
 
+/* 
+
+
+*/
 
 function createGrid(container, userSize) {
   for (let i = 0; i < userSize ** 2; i++) {
@@ -48,12 +53,24 @@ function createGrid(container, userSize) {
 
       if (changeColor.checked && !clickToColor.checked) {
         div.style.backgroundColor = hslColor;
-        opacityEnter = newOpacityEnter;
-        div.style.opacity = opacityEnter;
+
+        if (applyOpacity.checked) {
+          opacityEnter = newOpacityEnter;
+          div.style.opacity = opacityEnter;
+        } else {
+          div.style.opacity = "";
+        }
+
       } else if (!clickToColor.checked) {
         div.style.backgroundColor = "gray";
-        opacityEnter = newOpacityEnter;
-        div.style.opacity = opacityEnter;
+
+        if (applyOpacity.checked) {
+          opacityEnter = newOpacityEnter;
+          div.style.opacity = opacityEnter;
+        } else {
+          div.style.opacity = "";
+        }
+
       }
 
     });
@@ -65,12 +82,23 @@ function createGrid(container, userSize) {
 
       if (clickToColor.checked && changeColor.checked) {
         div.style.backgroundColor = hslColor;
-        opacityDown = newOpacityDown;
-        div.style.opacity = opacityDown;
+
+        if (applyOpacity.checked) {
+          opacityDown = newOpacityDown;
+          div.style.opacity = opacityDown;
+        } else {
+          div.style.opacity = "";
+        }
+
       } else if (clickToColor.checked){
         div.style.backgroundColor = "gray";
-        opacityDown = newOpacityDown;
-        div.style.opacity = opacityDown;
+        
+        if (applyOpacity.checked) {
+          opacityDown = newOpacityDown;
+          div.style.opacity = opacityDown;
+        } else {
+          div.style.opacity = "";
+        }
 
       }
 
