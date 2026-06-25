@@ -1,7 +1,8 @@
 const container = document.querySelector("#container");
 const gridSize = document.querySelector("#grid-size");
-const changeColor = document.querySelector("#change-color");
 const clearGrid = document.querySelector("#clear-all");
+
+const changeColor = document.querySelector("#change-color");
 const clickToColor = document.querySelector("#click-to-color");
 const applyOpacity = document.querySelector("#apply-opacity");
 
@@ -28,10 +29,6 @@ function userSize(gridSize) {
 
 userSize(gridSize)
 
-/* 
-
-
-*/
 
 function createGrid(container, userSize) {
   for (let i = 0; i < userSize ** 2; i++) {
@@ -49,7 +46,7 @@ function createGrid(container, userSize) {
 
       const h = Math.floor(Math.random() * (hMax - hMin) + hMin);
       const hslColor = `hsl(${h}, 60%, 80%)`;
-      const newOpacityEnter = Math.min(1, opacityEnter + 0.2);
+      const newOpacityEnter = Math.min(1, opacityEnter + 0.1);
 
       if (changeColor.checked && !clickToColor.checked) {
         div.style.backgroundColor = hslColor;
@@ -78,7 +75,7 @@ function createGrid(container, userSize) {
     div.addEventListener("mousedown", () => {
       const h = Math.floor(Math.random() * (hMax - hMin) + hMin);
       const hslColor = `hsl(${h}, 60%, 80%)`;
-      const newOpacityDown = Math.min(1, opacityDown + 0.2);
+      const newOpacityDown = Math.min(1, opacityDown + 0.1);
 
       if (clickToColor.checked && changeColor.checked) {
         div.style.backgroundColor = hslColor;
