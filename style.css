@@ -10,8 +10,3 @@
   box-sizing: border-box;
   border: 1px solid black;
 }
-
-.grids-opacity {
-  opacity: 1;
-  transition: 0.3s ease;
-}
