@@ -31,14 +31,14 @@ userSize(gridSize)
 function createGrid(container, userSize) {
   for (let i = 0; i < userSize ** 2; i++) {
     const div = document.createElement("div");
-    
+    const hMin = 200;
+    const hMax = 280;
+
     div.style.width = `calc(100% / ${userSize})`;
     div.style.height = `calc(100% / ${userSize})`;
 
     div.addEventListener("mouseenter", () => {
 
-      const hMin = 200;
-      const hMax = 280;
       const h = Math.floor(Math.random() * (hMax - hMin) + hMin);
       const hslColor = `hsl(${h}, 60%, 80%)`;
       
@@ -52,6 +52,9 @@ function createGrid(container, userSize) {
 
     div.addEventListener("mousedown", () => {
       
+      const h = Math.floor(Math.random() * (hMax - hMin) + hMin);
+      const hslColor = `hsl(${h}, 60%, 80%)`;
+
       if (clickToColor.checked && changeColor.checked) {
         div.style.backgroundColor = hslColor;
       } else if (clickToColor.checked){
