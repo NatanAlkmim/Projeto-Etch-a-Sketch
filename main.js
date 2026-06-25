@@ -33,6 +33,9 @@ function createGrid(container, userSize) {
     const div = document.createElement("div");
     const hMin = 200;
     const hMax = 280;
+    let opacityEnter = 0;
+    let opacityDown = 0;
+   
 
     div.style.width = `calc(100% / ${userSize})`;
     div.style.height = `calc(100% / ${userSize})`;
@@ -41,24 +44,34 @@ function createGrid(container, userSize) {
 
       const h = Math.floor(Math.random() * (hMax - hMin) + hMin);
       const hslColor = `hsl(${h}, 60%, 80%)`;
-      
+      const newOpacityEnter = Math.min(1, opacityEnter + 0.2);
+
       if (changeColor.checked && !clickToColor.checked) {
         div.style.backgroundColor = hslColor;
+        opacityEnter = newOpacityEnter;
+        div.style.opacity = opacityEnter;
       } else if (!clickToColor.checked) {
         div.style.backgroundColor = "gray";
+        opacityEnter = newOpacityEnter;
+        div.style.opacity = opacityEnter;
       }
 
     });
 
     div.addEventListener("mousedown", () => {
-      
       const h = Math.floor(Math.random() * (hMax - hMin) + hMin);
       const hslColor = `hsl(${h}, 60%, 80%)`;
+      const newOpacityDown = Math.min(1, opacityDown + 0.2);
 
       if (clickToColor.checked && changeColor.checked) {
         div.style.backgroundColor = hslColor;
+        opacityDown = newOpacityDown;
+        div.style.opacity = opacityDown;
       } else if (clickToColor.checked){
         div.style.backgroundColor = "gray";
+        opacityDown = newOpacityDown;
+        div.style.opacity = opacityDown;
+
       }
 
     });
