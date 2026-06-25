@@ -13,10 +13,10 @@ function userSize(gridSize) {
 
     let getSizeGrid = prompt("Escolha um valor de 1 a 100");
 
-    while (getSizeGrid < 1 || getSizeGrid > 100) {
+    while (getSizeGrid < 1 || getSizeGrid > 100 || !Number.isInteger()) {
       if (getSizeGrid === null) {
         break;
-      }
+      } 
       alert("Precisa ser de 1 a 100!!!");
       getSizeGrid = prompt("Escolha um valor de 1 a 100");
     }
