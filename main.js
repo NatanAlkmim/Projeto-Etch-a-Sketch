@@ -10,26 +10,26 @@ let tamanhoAtual = 16;
 
 function userSize(gridSize) {
   gridSize.addEventListener("mousedown", () => {
-    
-    let getSizeGrid = Number(prompt("Escolha um valor de 1 a 100"));
 
-    while (getSizeGrid < 1 || getSizeGrid > 100 || !Number.isInteger(getSizeGrid) || Number.isNaN(getSizeGrid) ) {
+    let getSizeGrid;
+    let imputSizeGrid;
 
-      if (!Number.isInteger(getSizeGrid) || Number.isNaN(getSizeGrid)) {
-        alert("Apenas números inteiros");
-      } else {
-        alert("Precisa ser de 1 a 100!!!");
-      }
+    do {
+      getSizeGrid = prompt("Escolha um valor de 1 a 100");
       
-      let input = prompt("Escolha um valor de 1 a 100");
+      if (getSizeGrid === null) return;
+
+      imputSizeGrid = Number(getSizeGrid);
+
+      if (!Number.isInteger(imputSizeGrid)) alert("Apenas números inteiros");
+      else if (imputSizeGrid < 1 || imputSizeGrid > 100) alert("Precisa ser de 1 a 100!!!");
       
-      if (input === null) break;
-      getSizeGrid = Number(input);
-    }
+    } while (imputSizeGrid < 1 || imputSizeGrid > 100 || !Number.isInteger(imputSizeGrid));
 
     container.innerHTML = '';
-    tamanhoAtual = getSizeGrid;
-    createGrid(container, getSizeGrid);
+    tamanhoAtual = imputSizeGrid;
+    createGrid(container, imputSizeGrid);
+  
   })
 }
 
